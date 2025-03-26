@@ -5,6 +5,7 @@
 The quality assessment process in `data_quality_checks.ipynb` examines several dimensions of data quality:
 
 1. Basic Dataset Information
+
 We first analyse the basic structure of each dataset to understand:
 
 - The shape and size of each table
@@ -14,6 +15,7 @@ We first analyse the basic structure of each dataset to understand:
 This foundational step helps establish our baseline understanding of the data before deeper investigation.
 
 2. Duplicate Detection
+
 Duplicates in recruitment data can significantly skew metrics by counting the same events multiple times. Our duplicate check examines each table for exact duplicate rows:
 
 ```python
@@ -43,6 +45,7 @@ This analysis helps identify columns with high missing value rates, which can im
 Identifying missing values is critical as it indicates potential data collection issues or integration problems between recruitment systems. For example, missing CLOSE_DATE values might affect time-to-fill calculation accuracy.
 
 4. Date Validation
+
 A key focus of our quality assessment is date field validation. We check for:
 
 - Invalid date formats
@@ -65,6 +68,7 @@ upper_bound = q3 + 1.5 * iqr
 Detecting outliers is crucial as extreme values, such as unusually long time-to-fill periods, could distort average metrics and lead to misinterpretation of recruitment performance.
 
 6. Status Progression Validation
+
 For candidate data, we verify that status progressions follow a logical sequence:
 
 ```python
