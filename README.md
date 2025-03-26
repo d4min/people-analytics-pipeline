@@ -46,7 +46,7 @@ This step focuses on exploring and understanding the dataset structure. Particul
 
 Following the data exploration phase, I have implemented comprehensive data quality checks to validate the integrity of the datasets. 
 
-### Quality Check Framework 
+### Quality Check Framework
 
 - **Basic Quality Metrics**: Identifies duplicates, missing values, and verifies data types across all tables
 - **Cross-Referenced Validation**: Ensures relationships between tables are valid and consistent
