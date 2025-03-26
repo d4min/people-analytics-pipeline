@@ -41,3 +41,27 @@ This step focuses on exploring and understanding the dataset structure. Particul
     - Remaining 368 departments appear to be store-level (e.g., "0717 - SD")
     - All departments have a parent, confirming a complete hierarchical structure
     - Store departments have Area parents, and Areas have Region parents
+
+## Step 3: Data Quality Assessment
+
+Following the data exploration phase, I have implemented comprehensive data quality checks to validate the integrity of the datasets. 
+
+### Quality Check Framework 
+
+- **Basic Quality Metrics**: Identifies duplicates, missing values, and verifies data types across all tables
+- **Cross-Referenced Validation**: Ensures relationships between tables are valid and consistent
+- **Logical Consistency**: Verifies that dates follow a logical sequence (e.g., submission date before interview date)
+
+### KPI-Critical Outlier Detection 
+
+I added specific outlier detection for fields critical to the dashboard KPIs:
+
+- **Number of Active Vacancies**: Identified outliers in NUMBER_OF_OPENINGS
+- **Time to Fill:**: Detected statistically significant outliers in requisition time-to-fill calculations
+- **Conversion Rates**: Found unusual submission-to-interview and interview-to-hire times that may skew conversion metrics
+
+### Candidate Pipeline Validation 
+
+- **Status Logic**: Enhanced verification of candidate status progression
+- **Date Sequence Validation**: Ensured all pipeline stage dates follow logical progression
+
