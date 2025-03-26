@@ -3,6 +3,8 @@ import pandas as pd
 from sqlalchemy import create_engine
 from dotenv import load_dotenv 
 
+from db_connector import get_sqlalchemy_engine
+
 load_dotenv()
 
 def load_excel_to_postgres():
@@ -12,9 +14,7 @@ def load_excel_to_postgres():
     This is so we can use sql for data cleaning and quality checks
     """
 
-    # Create SqlAlchemy engine
-    connection_string = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST', 'localhost')}:{os.getenv('DB_PORT', '5432')}/{os.getenv('DB_NAME', 'people_analytics')}"
-    engine = create_engine(connection_string)
+    engine = get_sqlalchemy_engine()
 
     # Load excel files into dataframes
     requisitions_df = pd.read_excel('data/Data File.xlsx', sheet_name='Requisition')
@@ -33,4 +33,3 @@ def load_excel_to_postgres():
 if __name__ == '__main__':
     load_excel_to_postgres()
 
-    
