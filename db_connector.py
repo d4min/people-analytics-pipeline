@@ -31,8 +31,39 @@ def get_sqlalchemy_engine():
 
     return engine 
 
-# Test the connection 
+def load_from_excel():
+    """
+    Load all datasets from the Excel file
+    """
+    requisitions_df = pd.read_excel('data/Data File.xlsx', sheet_name='Requisition')
+    candidate_df = pd.read_excel('data/Data File.xlsx', sheet_name='Candidate')
+    candidate_status_df = pd.read_excel('data/Data File.xlsx', sheet_name='Candidate Status')
+    department_df = pd.read_excel('data/Data File.xlsx', sheet_name='Department')
 
+    return {
+        'requisitions': requisitions_df,
+        'candidate': candidate_df,
+        'candidate_status': candidate_status_df,
+        'department': department_df
+    }
+
+def load_from_db():
+    """Load all datasets from database"""
+    engine = get_sqlalchemy_engine()
+    
+    requisitions_df = pd.read_sql("SELECT * FROM raw_requisitions", engine)
+    candidate_df = pd.read_sql("SELECT * FROM raw_candidate", engine)
+    candidate_status_df = pd.read_sql("SELECT * FROM raw_candidate_status", engine)
+    department_df = pd.read_sql("SELECT * FROM raw_department", engine)
+    
+    return {
+        'requisitions': requisitions_df,
+        'candidate': candidate_df,
+        'candidate_status': candidate_status_df,
+        'department': department_df
+    }
+
+# Test the connection 
 if __name__ == "__main__":
     try:
         conn = get_db_connection()
