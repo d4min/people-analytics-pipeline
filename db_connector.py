@@ -35,10 +35,13 @@ def load_from_excel():
     """
     Load all datasets from the Excel file
     """
-    requisitions_df = pd.read_excel('data/Data File.xlsx', sheet_name='Requisition')
-    candidate_df = pd.read_excel('data/Data File.xlsx', sheet_name='Candidate')
-    candidate_status_df = pd.read_excel('data/Data File.xlsx', sheet_name='Candidate Status')
-    department_df = pd.read_excel('data/Data File.xlsx', sheet_name='Department')
+
+    path =  '/Users/damin/Developer/AS Watson/people-analytics-demo/data/Data File.xlsx'
+
+    requisitions_df = pd.read_excel(path, sheet_name='Requisition')
+    candidate_df = pd.read_excel(path, sheet_name='Candidate')
+    candidate_status_df = pd.read_excel(path, sheet_name='Candidate Status')
+    department_df = pd.read_excel(path, sheet_name='Department')
 
     return {
         'requisitions': requisitions_df,
