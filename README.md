@@ -1,4 +1,4 @@
-# People Analytics Project
+# People Analytics Pipeline
 
 ## Step 1: Enviroment Setup
 
